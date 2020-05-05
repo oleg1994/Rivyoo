@@ -6,7 +6,10 @@
   text-align: center;
 }
 .radioButtons {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
   width: 200px;
   display: flex;
   justify-content: space-evenly;

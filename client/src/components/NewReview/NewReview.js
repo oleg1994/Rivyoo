@@ -21,7 +21,6 @@ const reducer = (state, { field, value }) => {
     }
 }
 function NewReview(props) {
-    console.log(props)
     const [state, dispatch] = useReducer(reducer, initialForm)
     const [bands, setbands] = useState('')
     const [errors, setErrors] = useState({})
@@ -29,7 +28,6 @@ function NewReview(props) {
 
     const onChange = (e) => {
         if (e.target.name === 'searchValue') {
-            state.bandName = 'aaa'
             dispatch({ field: e.target.name, value: e.target.value })
         } else {
             dispatch({ field: e.target.name, value: e.target.value })
