@@ -1,0 +1,46 @@
+.header {
+  min-height: 5vh;
+  width: 100%;
+}
+.subHeader {
+  min-height: 3vh;
+  padding: 10px;
+  background: #fff;
+  min-width: 100%;
+  color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-around;
+}
+.smallTitle {
+  color: #5cb85c;
+  font-size: 1.3rem;
+}
+.container {
+  padding: 20px;
+  color: #fff;
+  background: #5cb85c;
+  box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.3),
+    inset 0 -8px 8px -8px rgba(0, 0, 0, 0.3);
+}
+.bannerTitle {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 700 !important;
+  text-align: center;
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+}
+.bannerSubtitle {
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300 !important;
+  margin-bottom: 0;
+}
+
+.addReviewButton:hover {
+  color: var(--grey);
+}

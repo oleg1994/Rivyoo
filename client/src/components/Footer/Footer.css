@@ -1,0 +1,21 @@
+.footerWrapper{
+    margin-top:70px;
+    background:var(--green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    font-size: 15px;
+    height: 35px;
+}
+.creditLink{
+    display: flex;
+    align-items: center;
+}
+.creditLink:hover{
+    color:var(--grey)
+}
+.linkedImg{
+    width: 25px;
+    height: 25px;
+}

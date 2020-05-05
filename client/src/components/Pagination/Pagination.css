@@ -1,0 +1,13 @@
+.Pagination{
+    display: flex;
+    justify-content: center;
+    list-style-type:none;
+}
+.page{
+    margin:5px;
+    margin-top:none;
+    padding:7px;
+    border:1px solid grey;
+    color:var(--green);
+    cursor: pointer;
+}

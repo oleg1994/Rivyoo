@@ -1,0 +1,24 @@
+:root {
+  --green: #5cb85c;
+  --grey: #373a3c;
+}
+.App {
+  min-height: 100vh;
+  width: 100%;
+  font-family: titillium web,sans-serif;
+  color:#373a3c;
+}
+
+/*removes Link ugly hyperlink*/
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
+hr{
+  border-top: 1px solid #373a3c54;;
+}
+
+h3{
+  color:#373a3c;
+}

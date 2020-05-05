@@ -1,0 +1,13 @@
+.starWrapper{
+    height: fit-content;
+    width: fit-content;
+}
+.star{
+    height: 1.2rem;
+    width: 1.2rem;
+    margin:1px;
+    cursor: pointer;
+}
+.radioStar{
+    display: none;
+}

@@ -1,0 +1,140 @@
+.Home {
+  min-height: 100vh;
+  width: 90%;
+  margin: auto;
+  background: #ffffff;
+  text-align: center;
+}
+.radioButtons {
+  margin: auto;
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.homeContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.tagsContainer {
+  margin-right: 10px;
+  margin-left: 10px;
+  background: #f3f3f3;
+  height: fit-content;
+  margin-top: 20px;
+}
+/*ReviewModule css */
+.ReviewModule {
+  margin-top: 20px;
+  width: 100%;
+}
+.reviewCard {
+  max-width: 900px;
+  min-height: 300px;
+  height: fit-content;
+  margin-bottom: 15px;
+  overflow: hidden;
+  margin-left: 30px;
+  margin-right: 10px;
+  color: #999;
+  text-align: left;
+  border: 3px solid rgba(116, 113, 113, 0.432);
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+}
+
+.bandBanner {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 80px;
+  height: 80px;
+}
+.reviewParts {
+  margin-left: 20px;
+}
+.reviewDate {
+  text-align: right;
+  margin-right: 5px;
+  font-size: 10px;
+}
+.authorAndRating {
+  display: flex;
+  justify-content: space-around;
+  color: var(--green);
+}
+.reviewRating {
+}
+.reviewMore {
+  margin-left: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*Tags Css*/
+.tagsWrapper {
+  height: fit-content;
+  width: fit-content;
+  max-width: 230px;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tags {
+  background: #818a91;
+  color: #fff;
+  border: 2px solid #818a91;
+  margin: 5px;
+  border-radius: 15px;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+  padding: 3px;
+  width: 100%;
+  max-width: 100px;
+}
+.tagsStatic {
+  background: #818a91;
+  color: #fff;
+  border: 2px solid var(--green);
+  margin: 5px;
+  border-radius: 15px;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+  padding: 3px;
+  width: 100%;
+  max-width: 100px;
+}
+
+.tags:hover,
+.tagsStatic:hover {
+  background: #5c6164;
+}
+
+@media screen and (max-width: 600px) {
+  .ReviewModule {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .reviewCard {
+    margin-left: 5px;
+  }
+  .Home {
+    width: 100%;
+  }
+  .homeContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .tagsWrapper {
+    min-width: 100%;
+  }
+  .tagsContainer {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
