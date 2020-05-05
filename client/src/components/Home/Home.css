@@ -29,7 +29,7 @@
 /*ReviewModule css */
 .ReviewModule {
   margin-top: 20px;
-  width: 100%;
+  max-width: 900px;
 }
 .reviewCard {
   max-width: 900px;
