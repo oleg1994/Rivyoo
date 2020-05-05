@@ -29,10 +29,12 @@
 /*ReviewModule css */
 .ReviewModule {
   margin-top: 20px;
-  max-width: 900px;
+  width: 100%;
+  max-width: 800px;
+  
 }
 .reviewCard {
-  max-width: 900px;
+  width: 95%;
   min-height: 300px;
   height: fit-content;
   margin-bottom: 15px;
@@ -84,8 +86,10 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  white-space: nowrap;
 }
 .tags {
+  font-size:0.7rem;
   background: #818a91;
   color: #fff;
   border: 2px solid #818a91;

@@ -118,7 +118,7 @@ export default class Home extends React.Component {
                                 )
                             })
                             :
-                            'loading...'
+                            `Theres no reviews or they are loading`
                         }
                         <Pagination postPerPage={this.state.postPerPage} totalPosts={this.state.reviews.length} paginate={this.paginate} />
                     </div>

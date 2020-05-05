@@ -20,6 +20,7 @@ const App = () => {
           <Route path="/new-review">
             <Header></Header>
             <NewReview></NewReview>
+            <Footer></Footer>
           </Route>
         </Switch>
       </Router>

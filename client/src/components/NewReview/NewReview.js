@@ -23,6 +23,7 @@ const reducer = (state, { field, value }) => {
 function NewReview(props) {
     const [state, dispatch] = useReducer(reducer, initialForm)
     const [bands, setbands] = useState('')
+    const [checkIfSearched, setcheckIfSearched] = useState(false)
     const [errors, setErrors] = useState({})
     const { author, review, rating, bandName, searchValue, banner } = state;
 
@@ -35,18 +36,26 @@ function NewReview(props) {
     }
 
     const fetchBands = () => {
+        setcheckIfSearched(false)
         if (searchValue) {
             fetch(`https://theaudiodb.com/api/v1/json/1/search.php?s=coldplay&s=${searchValue.split(' ').join('_')}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.artists) {
+                        setcheckIfSearched(true)
                         setbands(data)
+                        setErrors(prevState => ({
+                            ...prevState,
+                            ['searchValue']: ``
+                        }));
                         console.log(data)
                         state.bandName = data.artists[0].strArtist
                         state.banner = data.artists[0].strArtistBanner ? data.artists[0].strArtistBanner : `https://via.placeholder.com/468x60?text=${data.artists[0].strArtist}`
-                        setErrors({ 'searchValue': `` })
                     } else {
-                        setErrors({ 'searchValue': `Your search - ${searchValue} - did not match any artist.` })
+                        setErrors(prevState => ({
+                            ...prevState,
+                            ['searchValue']: `Your search - ${searchValue} - did not match any artist.`
+                        }));
                         triggerErrorsTransition()
 
                     }
@@ -67,6 +76,9 @@ function NewReview(props) {
                 //review input too short
                 if (key === 'review' && value.length < 20) {
                     errorsCheck[key] = `review too short`
+                }
+                if (key === 'searchValue' && !checkIfSearched) {
+                    errorsCheck[key] = `didnt search`
                 }
             } else {
                 // empty inputs
