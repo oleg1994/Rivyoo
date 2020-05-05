@@ -103,7 +103,7 @@ app.post('/sortfindReviews', (req, res) => {
 })
 
 //its should set node.env to production automatically once pushed to heroku
-// if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static('./client/build'))
     app.get('*', function (req, res) {
         res.sendFile(path.join(__dirname, 'client','build', 'index.html'), function (err) {
@@ -112,5 +112,5 @@ app.post('/sortfindReviews', (req, res) => {
             }
         });
     });
-// }
+}
 
