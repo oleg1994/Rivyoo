@@ -9,7 +9,7 @@ const initialForm = {
     author: '',
     review: '',
     rating: 1,
-    bandName: '',
+    artistName: '',
     banner: '',
     searchValue: '',
 }
@@ -22,10 +22,10 @@ const reducer = (state, { field, value }) => {
 }
 function NewReview(props) {
     const [state, dispatch] = useReducer(reducer, initialForm)
-    const [bands, setbands] = useState('')
+    const [artist, setartist] = useState('')
     const [checkIfSearched, setcheckIfSearched] = useState(false)
     const [errors, setErrors] = useState({})
-    const { author, review, rating, bandName, searchValue, banner } = state;
+    const { author, review, rating, artistName, searchValue, banner } = state;
 
     const onChange = (e) => {
         if (e.target.name === 'searchValue') {
@@ -35,7 +35,7 @@ function NewReview(props) {
         }
     }
 
-    const fetchBands = () => {
+    const fetchArtist = () => {
         setcheckIfSearched(false)
         if (searchValue) {
             fetch(`https://theaudiodb.com/api/v1/json/1/search.php?s=coldplay&s=${searchValue.split(' ').join('_')}`)
@@ -43,13 +43,13 @@ function NewReview(props) {
                 .then(data => {
                     if (data.artists) {
                         setcheckIfSearched(true)
-                        setbands(data)
+                        setartist(data)
                         setErrors(prevState => ({
                             ...prevState,
                             ['searchValue']: ``
                         }));
                         console.log(data)
-                        state.bandName = data.artists[0].strArtist
+                        state.artistName = data.artists[0].strArtist
                         state.banner = data.artists[0].strArtistBanner ? data.artists[0].strArtistBanner : `https://via.placeholder.com/468x60?text=${data.artists[0].strArtist}`
                     } else {
                         setErrors(prevState => ({
@@ -121,9 +121,9 @@ function NewReview(props) {
             <h1 className='review__Title'>New Review</h1>
             <hr></hr>
             <h3>Search for artist to review</h3>
-            <SearchBar value={searchValue} onchange={(e) => { onChange(e) }} fetchBands={(e) => { fetchBands(e) }} placeholder={`Type artist name`}></SearchBar>
+            <SearchBar value={searchValue} onchange={(e) => { onChange(e) }} fetchArtist={(e) => { fetchArtist(e) }} placeholder={`Type artist name`}></SearchBar>
             <div className='errorTop'>{errors.searchValue}</div>
-            <NewReviewModule bandsData={bands} />
+            <NewReviewModule artistData={artist} />
             <div className='reviewForm'>
                 <div className='nameAndRating'>
                     <div>
@@ -136,7 +136,7 @@ function NewReview(props) {
                         </label>
                     </div>
                     <label htmlFor="rating">
-                        Band rating:
+                        Artist rating:
                         <div>
                             <StarRating rating={rating} onclick={(e) => { onChange(e) }} clickable={'auto'} />
                         </div>
@@ -144,7 +144,7 @@ function NewReview(props) {
                 </div>
                 <div className='reviewContainer'>
                     <label htmlFor="review">Review:</label>
-                    <textarea className='reviewText' name='review' value={review} onChange={onChange} rows="" maxLength="1500" placeholder={bands.artists ? bands.artists[0].strArtist + ' ' + 'is...' : 'This Artist..'}></textarea>
+                    <textarea className='reviewText' name='review' value={review} onChange={onChange} rows="" maxLength="1500" placeholder={artist.artists ? artist.artists[0].strArtist + ' ' + 'is...' : 'This Artist..'}></textarea>
                     <div className='reviewLength'>{Math.max(0, 1500 - review.length)}</div>
                     <div>{errors.review}</div>
                 </div>

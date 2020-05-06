@@ -36,13 +36,13 @@ db.once('open', function () {
 
 app.post('/newReview', (req, res) => {
     console.log(req.body)
-    const { author, review, rating, bandName, banner } = req.body.state
+    const { author, review, rating, artistName, banner } = req.body.state
     console.log('hi')
     let newReview = new Review({
         author: author,
         review: review,
         rating: rating,
-        band: bandName.toUpperCase(),
+        artist: artistName.toUpperCase(),
         banner: banner,
     });
     newReview.save(function (err, newReview) {
@@ -73,7 +73,7 @@ app.post('/sortfindReviews', (req, res) => {
             method = {}
         }
         if (criteria !== 'Show All') {
-            method = { band: criteria.toUpperCase() }
+            method = { artist: criteria.toUpperCase() }
         }
         if (criteria === 'Latest') {
             method = {}
@@ -88,7 +88,7 @@ app.post('/sortfindReviews', (req, res) => {
         if (searchBy === 'author') {
             method = { author: criteria }
         } else {
-            method = { band: criteria.toUpperCase() }
+            method = { artist: criteria.toUpperCase() }
         }
     }
     Review.find(method).sort({ date: order }).exec(function (err, result) {

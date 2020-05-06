@@ -106,7 +106,7 @@ export default class Home extends React.Component {
                     <label forhtml="author">Author</label>
                     <input type="radio" name="criteria" value="author" />
                 </div>
-                <SearchBar value={this.state.searchValue} onchange={(e) => { this.onChange(e) }} fetchBands={(e) => { this.Search(e) }} placeholder={`Type ${this.state.searchBy} name (case sensitive)`}></SearchBar>
+                <SearchBar value={this.state.searchValue} onchange={(e) => { this.onChange(e) }} fetchArtist={(e) => { this.Search(e) }} placeholder={`Type ${this.state.searchBy} name (case sensitive)`}></SearchBar>
                 <h1>Latest reviews</h1>
                 <hr></hr>
                 <div className='homeContainer'>
@@ -114,7 +114,7 @@ export default class Home extends React.Component {
                         {this.state.reviews[0] ?
                             currentPosts.map((review, i) => {
                                 return (
-                                    <ReviewModule key={i} banner={review.banner} date={review.date} author={review.author} rating={review.rating} band={review.band} review={review.review} />
+                                    <ReviewModule key={i} banner={review.banner} date={review.date} author={review.author} rating={review.rating} artist={review.artist} review={review.review} />
                                 )
                             })
                             :
@@ -125,7 +125,7 @@ export default class Home extends React.Component {
 
                     <div className='tagsContainer'>
                         <h3>Sort by</h3>
-                        <Tags array={utils.removeDuplicateObjectFromArray(this.state.reviews, 'band')} sort={(e) => { this.Sorting(e.target.innerText) }}></Tags>
+                        <Tags array={utils.removeDuplicateObjectFromArray(this.state.reviews, 'artist')} sort={(e) => { this.Sorting(e.target.innerText) }}></Tags>
                     </div>
                 </div>
             </div>

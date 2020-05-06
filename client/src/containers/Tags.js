@@ -8,7 +8,7 @@ function Tags(props) {
             {props.array[0] ?
                 props.array.map((review, i) => {
                     return (
-                        <div key={i} className='tags' onClick={props.sort}>{review.band.toLowerCase()}</div>
+                        <div key={i} className='tags' onClick={props.sort}>{review.artist.toLowerCase()}</div>
                     )
                 })
                 : null
