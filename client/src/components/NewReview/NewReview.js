@@ -38,7 +38,7 @@ function NewReview(props) {
     const fetchArtist = () => {
         setcheckIfSearched(false)
         if (searchValue) {
-            fetch(`https://theaudiodb.com/api/v1/json/1/search.php?s=coldplay&s=${searchValue.split(' ').join('_')}`)
+            fetch(`https://theaudiodb.com/api/v1/json/2/search.php?s=coldplay&s=${searchValue.split(' ').join('_')}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.artists) {
